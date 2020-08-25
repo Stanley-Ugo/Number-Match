@@ -82,3 +82,4 @@ const images = [
   ]
 
   const randomNumber = Math.floor(Math.random() * images.length);
+  const randomImageName = images[randomNumber].image_name;
