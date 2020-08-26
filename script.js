@@ -90,3 +90,7 @@ const images = [
     image.src = `images/${randomImageName}`;
     imageContainer.appendChild(image);
   }
+
+  const timer = () => {
+      setInterval(generate, 2000)
+  }
