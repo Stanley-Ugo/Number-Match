@@ -82,6 +82,11 @@ const images = [
   ]
 
   const generate = () => {
+      if(images.length === 0){
+          stopTimer();
+          return;
+      }
+
     const randomNumber = Math.floor(Math.random() * images.length);
     const randomImageName = images[randomNumber].image_name;
     const imageContainer = document.getElementById('imageContainer');
@@ -93,13 +98,19 @@ const images = [
     const image = document.createElement("img");
     image.src = `images/${randomImageName}`;
     imageContainer.appendChild(image);
+    images.splice(randomNumber, 1);
   }
 
+  let timerRef;
   const timer = () => {
-      setInterval(generate, 2000)
+      timerRef = setInterval(generate, 500)
   }
 
   const play = () => {
       generate();
       timer();
+  }
+
+  const stopTimer = () => {
+      clearInterval(timerRef);
   }
