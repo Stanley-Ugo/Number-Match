@@ -85,6 +85,10 @@ const images = [
     const randomNumber = Math.floor(Math.random() * images.length);
     const randomImageName = images[randomNumber].image_name;
     const imageContainer = document.getElementById('imageContainer');
+
+    if (imageContainer.hasChildNodes()) {
+        imageContainer.removeChild(imageContainer.firstElementChild);
+    }
   
     const image = document.createElement("img");
     image.src = `images/${randomImageName}`;
@@ -93,4 +97,9 @@ const images = [
 
   const timer = () => {
       setInterval(generate, 2000)
+  }
+
+  const play = () => {
+      generate();
+      timer();
   }
