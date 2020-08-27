@@ -90,12 +90,23 @@ const images = [
     const image = document.createElement("img");
     image.src = `images/${randomImageName}`;
     imageContainer.appendChild(image);
+  };
+
+  generateDisplayNumber = (numberOfItems, plusOrMinus) => {
+    const split = Math.floor(Math.random() * 2);
+    if(split === 0) {
+      //display real number
+      document.getElementById('number').innerHTML = numberOfItems;
+    } else {
+      //display one higher or one lower
+      document.getElementById('number').innerHTML = `${numberOfItems + plusOrMinus}`;
+    }
   }
 
   generatePlusOrMinus = () => {
     const number0to1 = Math.floor(Math.random() * 2);
     return number0to1 === 0 ? -1 : +1;
-  }
+  };
   const generate = () => {
       if(images.length === 0){
           stopTimer();
@@ -107,19 +118,21 @@ const images = [
 
     setImageSrc(randomImageName);
     const plusOrMinus = generatePlusOrMinus();
+    const numberOfItems = images[randomNumber].number_of_items;
+    generateDisplayNumber(numberOfItems, plusOrMinus);
     images.splice(randomNumber, 1);
-  }
+  };
 
   let timerRef;
   const timer = () => {
-      timerRef = setInterval(generate, 500)
-  }
+      timerRef = setInterval(generate, 3000)
+  };
 
   const play = () => {
       generate();
       timer();
-  }
+  };
 
   const stopTimer = () => {
       clearInterval(timerRef);
-  }
+  };
