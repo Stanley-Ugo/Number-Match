@@ -81,6 +81,21 @@ const images = [
     },
   ]
 
+  const setImageSrc = (randomImageName) => {
+    const imageContainer = document.getElementById('imageContainer');
+    if (imageContainer.hasChildNodes()) {
+        imageContainer.removeChild(imageContainer.firstElementChild);
+    }
+  
+    const image = document.createElement("img");
+    image.src = `images/${randomImageName}`;
+    imageContainer.appendChild(image);
+  }
+
+  generatePlusOrMinus = () => {
+    const number0to1 = Math.floor(Math.random() * 2);
+    return number0to1 === 0 ? -1 : +1;
+  }
   const generate = () => {
       if(images.length === 0){
           stopTimer();
@@ -89,15 +104,9 @@ const images = [
 
     const randomNumber = Math.floor(Math.random() * images.length);
     const randomImageName = images[randomNumber].image_name;
-    const imageContainer = document.getElementById('imageContainer');
 
-    if (imageContainer.hasChildNodes()) {
-        imageContainer.removeChild(imageContainer.firstElementChild);
-    }
-  
-    const image = document.createElement("img");
-    image.src = `images/${randomImageName}`;
-    imageContainer.appendChild(image);
+    setImageSrc(randomImageName);
+    const plusOrMinus = generatePlusOrMinus();
     images.splice(randomNumber, 1);
   }
 
