@@ -81,6 +81,10 @@ const images = [
     },
   ]
 
+  let currentImageValue = 0,
+  displayNumber = 0,
+  score = 0
+
   const setImageSrc = (randomImageName) => {
     const imageContainer = document.getElementById('imageContainer');
     if (imageContainer.hasChildNodes()) {
@@ -97,10 +101,13 @@ const images = [
     if(split === 0) {
       //display real number
       document.getElementById('number').innerHTML = numberOfItems;
+      displayNumber = numberOfItems;
     } else {
       //display one higher or one lower
       document.getElementById('number').innerHTML = `${numberOfItems + plusOrMinus}`;
+      displayNumber = numberOfItems + plusOrMinus
     }
+    currentImageValue = numberOfItems;
   }
 
   generatePlusOrMinus = () => {
