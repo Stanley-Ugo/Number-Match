@@ -107,6 +107,10 @@ const images = [
     const number0to1 = Math.floor(Math.random() * 2);
     return number0to1 === 0 ? -1 : +1;
   };
+
+  setImageName = (randomImageName) => {
+    
+  }
   const generate = () => {
       if(images.length === 0){
           stopTimer();
@@ -117,6 +121,8 @@ const images = [
     const randomImageName = images[randomNumber].image_name;
 
     setImageSrc(randomImageName);
+    setImageName(randomImageName);
+
     const plusOrMinus = generatePlusOrMinus();
     const numberOfItems = images[randomNumber].number_of_items;
     generateDisplayNumber(numberOfItems, plusOrMinus);
