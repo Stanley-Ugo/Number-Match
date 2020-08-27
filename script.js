@@ -109,7 +109,8 @@ const images = [
   };
 
   setImageName = (randomImageName) => {
-    
+    const imageName = randomImageName.slice(0, randomImageName.length - 4);
+    console.log(imageName);
   }
   const generate = () => {
       if(images.length === 0){
