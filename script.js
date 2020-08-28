@@ -140,11 +140,16 @@ const images = [
   const match = () => {
     currentImageValue === displayNumber ? score++ : score--;
     document.getElementById('currentScore').innerHTML = score;
-  }
+  };
+
+  const noMatch = () => {
+    currentImageValue !== displayNumber ? score++ : score--;
+    document.getElementById('currentScore').innerHTML = score;
+  };
 
   let timerRef;
   const timer = () => {
-      timerRef = setInterval(generate, 3000)
+      timerRef = setInterval(generate, 5000);
   };
 
   const play = () => {
