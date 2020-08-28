@@ -137,6 +137,11 @@ const images = [
     images.splice(randomNumber, 1);
   };
 
+  const match = () => {
+    currentImageValue === displayNumber ? score++ : score--;
+    document.getElementById('currentScore').innerHTML = score;
+  }
+
   let timerRef;
   const timer = () => {
       timerRef = setInterval(generate, 3000)
