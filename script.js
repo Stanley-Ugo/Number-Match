@@ -153,6 +153,9 @@ const images = [
   };
 
   const play = () => {
+     document.getElementById('message').style.display = "none";
+     document.getElementById('startScreen').style.display = "none";
+     document.getElementById('play-button').style.display = "none";
       generate();
       timer();
   };
