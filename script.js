@@ -83,7 +83,8 @@ const images = [
 
   let currentImageValue = 0,
   displayNumber = 0,
-  score = 0
+  score = 0,
+  totalAvailable = images.length;
 
   const setImageSrc = (randomImageName) => {
     const imageContainer = document.getElementById('imageContainer');
@@ -121,6 +122,7 @@ const images = [
   }
   const generate = () => {
       if(images.length === 0){
+          endOfGame();
           stopTimer();
           return;
       }
@@ -159,6 +161,12 @@ const images = [
       generate();
       timer();
   };
+
+  const endOfGame = () => {
+    document.getElementById('message').style.display = "block";
+    document.getElementById('imageContainer').style.display = "none";
+    document.getElementById('message').innerHTML = `Game Over, your score was ${score} / ${totalAvailable}`;
+  }
 
   const stopTimer = () => {
       clearInterval(timerRef);
