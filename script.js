@@ -87,6 +87,8 @@ const images = [
   totalAvailable = images.length;
 
   document.getElementById('statsContent').style.visibility = "hidden";
+  document.getElementById('currentScore').innerHTML = score;
+  document.getElementById('totalAvailable').innerHTML = totalAvailable;
 
   const setImageSrc = (randomImageName) => {
     const imageContainer = document.getElementById('imageContainer');
