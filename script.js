@@ -165,7 +165,9 @@ const images = [
   const endOfGame = () => {
     document.getElementById('message').style.display = "block";
     document.getElementById('imageContainer').style.display = "none";
+    document.getElementById('statsContent').style.display = "none";
     document.getElementById('message').innerHTML = `Game Over, your score was ${score} / ${totalAvailable}`;
+    setTimeout( () => location.reload(), 3000);
   }
 
   const stopTimer = () => {
