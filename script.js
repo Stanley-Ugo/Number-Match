@@ -86,6 +86,8 @@ const images = [
   score = 0,
   totalAvailable = images.length;
 
+  document.getElementById('statsContent').style.visibility = "hidden";
+
   const setImageSrc = (randomImageName) => {
     const imageContainer = document.getElementById('imageContainer');
     if (imageContainer.hasChildNodes()) {
@@ -158,11 +160,13 @@ const images = [
      document.getElementById('message').style.display = "none";
      document.getElementById('startScreen').style.display = "none";
      document.getElementById('play-button').style.display = "none";
+     document.getElementById('statsContent').style.visibility = "visible";
       generate();
       timer();
   };
 
   const endOfGame = () => {
+    document.getElementById('statsContent').style.visibility = "hidden";
     document.getElementById('message').style.display = "block";
     document.getElementById('imageContainer').style.display = "none";
     document.getElementById('statsContent').style.display = "none";
