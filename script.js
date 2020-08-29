@@ -81,7 +81,7 @@ const images = [
   },
 ];
 
-const timeDelay = 3000;
+const timeDelay = 4000;
 let currentImageValue = 0,
   displayNumber = 0,
   score = 0,
