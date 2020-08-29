@@ -81,6 +81,7 @@ const images = [
     },
   ]
 
+  const timeDelay = 3000;
   let currentImageValue = 0,
   displayNumber = 0,
   score = 0,
@@ -89,6 +90,7 @@ const images = [
   document.getElementById('statsContent').style.visibility = "hidden";
   document.getElementById('currentScore').innerHTML = score;
   document.getElementById('totalAvailable').innerHTML = totalAvailable;
+  document.getElementById('timeSetting').innerHTML = timeDelay / 1000;
 
   const setImageSrc = (randomImageName) => {
     const imageContainer = document.getElementById('imageContainer');
@@ -155,7 +157,7 @@ const images = [
 
   let timerRef;
   const timer = () => {
-      timerRef = setInterval(generate, 5000);
+      timerRef = setInterval(generate, timeDelay);
   };
 
   const play = () => {
